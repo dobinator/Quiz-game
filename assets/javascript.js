@@ -1,5 +1,5 @@
 
-//var the questions and answers for the quiz. Elements from html that need to actived in js.
+// Elements from html that need to actived in js.
 
 var $startPrompt = document.querySelector("start-prompt");
 
@@ -7,10 +7,11 @@ var $startBtn = document.querySelector('results');
 
 var $questionPrompt = document.querySelector("question-prompt");
 
-var $timer = document.querySelector('timer');
+var $clock = document.querySelector("clock");
 
 var storeScores = document.querySelector("storeScores");
 
+//questions for the game
 var myQuestions =[
 
     {question:"Java Script File Has An Extension Of?",
@@ -57,72 +58,65 @@ var myQuestions =[
   },
    ];
 
-//on submit, show results
+// answer button
+// if that was the last question 
+// game is over 
+// calculate UserScore
 
-submitButton.addEventListener("click", showResults);
 
 
+
+
+
+//click on the start button
 $startBtn.addEventListener("click", function (e){
 // hide start prompts
    $startPrompt.classList.add("hide");
 // show our question prompt
   $questionPrompt.classList.remove("hide");
   //update the content with our current question text
-  $questionText.textContent = questions[0]. text; 
+  $questionText.textContent = myQuestions[0]. text; 
   //render the options
-  questions[0].options.forEach(function(item){
+  myQuestions[0].options.forEach(function(item){
     //create a html button
     var $btn= document.createElement("button");
     //set the text of that button to be our current item
     $btn.textContent = item;
     //append it to our options div
     $questionOptions.append($btn); 
-  }); 
+  });
+}
 
   //display our timer
-  //start our time
+  //start our time}
+  var secondsLeft = 30;
+
+  function setTime() {
+    // Sets interval in variable
+    var timerInterval = setInterval(function() {
+    secondsLeft--;
+     $clock.textContent = secondsLeft;
+  
+    if(secondsLeft === 0) {
+        // Stops execution of action at set interval
+        clearInterval(timerInterval);
+        // Calls function for score sheet
+        sendMessage();
+      }
+  
+    }, 1000);
+  }
+// UPDATE for Scores and initials
+
+
+//   // Function to create and append colorsplosion image
+// //function sendMessage() {
+//   timeEl.textContent = " ";
+//   var imgEl = document.createElement("img");
+//   imgEl.setAttribute("src", "images/image_1.jpg");
+//   mainEl.appendChild(imgEl);
 
 }
-);
-
-
-function buildQuiz(){
-    // variable to store the HTML output
-    const output = [];
-  
-    // for each question...
-    myQuestions.forEach(
-      (currentQuestion, questionNumber) => {
-  
-        // variable to store the list of possible answers
-        const answers = [];
-  
-        // and for each available answer...
-        for(letter in currentQuestion.answers){
-  
-          // ...add an HTML radio button
-          answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
-        }
-  
-        // add this question and its answers to the output
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join('')} </div>`
-        );
-      }
-    );
-  
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = output.join('');
-  }
-
-var storeScores = [], 
 
 //storing the scores & initials
 function storeScore(){
