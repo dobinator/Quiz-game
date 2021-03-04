@@ -98,7 +98,7 @@ function getQuestion() {
   //render options
   myQuestions[questionIndex].answers.forEach(function(item) {
   //create a button for start
-  console.log(item)
+
   var $btn= document.createElement("button");
   
   $btn.textContent = item;
