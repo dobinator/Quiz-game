@@ -19,6 +19,7 @@ color: #2d2d2b;
 
 #start-prompt {
   text-align: center; 
+  font-size: 28px;
 }
 
 button {
@@ -29,4 +30,13 @@ button {
     background-color:#3D5361;
     color: white;
   }
-  
+.hide {
+   display: none; 
+}
+#score-card {
+  color: #2d2d2b;
+  font-size: 30px; 
+
+
+
+}

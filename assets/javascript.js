@@ -11,6 +11,7 @@ var $clock = document.querySelector("clock");
 
 var storeScores = document.querySelector("storeScores");
 
+document.getElementById ("scoreCard")= "Please enter your initials and score"; 
 //questions for the game
 var myQuestions =[
 
@@ -58,88 +59,98 @@ var myQuestions =[
   },
    ];
 
-// answer button
-// if that was the last question 
-// game is over 
-// calculate UserScore
 
 
-
-
-
-
-//click on the start button
-$startBtn.addEventListener("click", function (e){
+//start the game- "home page"
+function startQuestions(){
 // hide start prompts
-   $startPrompt.classList.add("hide");
+$startPrompt.classList.add("hide");
 // show our question prompt
-  $questionPrompt.classList.remove("hide");
-  //update the content with our current question text
-  $questionText.textContent = myQuestions[0]. text; 
-  //render the options
-  myQuestions[0].options.forEach(function(item){
-    //create a html button
-    var $btn= document.createElement("button");
-    //set the text of that button to be our current item
-    $btn.textContent = item;
-    //append it to our options div
-    $questionOptions.append($btn); 
-  });
+$questionPrompt.classList.remove("hide");
+//update the content with current question
+$questionText.textContent = questions[0], text;
+//render options
+questions[0].options.forEach(function(item) {
+//create a button for start
+var $btn= document.createElement("button");
+$btn.textContent = item;
+//listening to the click of the button
+options.addEventListener ("click", answers) 
+// 
+$questionOptions.append($btn);
+//display the time "clock" on the game 
+startTime();
+}); 
 }
 
-  //display our timer
-  //start our time}
-  var secondsLeft = 30;
 
-  function setTime() {
-    // Sets interval in variable
-    var timerInterval = setInterval(function() {
-    secondsLeft--;
-     $clock.textContent = secondsLeft;
-  
-    if(secondsLeft === 0) {
-        // Stops execution of action at set interval
-        clearInterval(timerInterval);
-        // Calls function for score sheet
-        sendMessage();
-      }
-  
-    }, 1000);
+var secondsLeft = 100;
+//start the clock
+function startTime() {
+  // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+  var timerInterval = setInterval(function() {
+//as long as the 'timeLeft' is greater than 1
+ if (timeLeft >1){
+  $clock.textContent = timeLeft;
+  //decrement 'timeLeft' by 1.
+  timeLeft--; 
+ // if there is no time left
+ }
+ else(timeLeft === 0){
+//once 'timeLeft gets to 0, set '$clock' to an empty string
+$clock.textContent = "";
+  // Stops execution of action at set interval
+  clearInterval(timerInterval);
+      // Calls function for score sheet
+      displaymessage();
+    }
+// where's the message go? 
+  }, 1000);
+}
+
+// would this be where I place the winner winner chicken dinner...
+function displayMessage(){
+var timeLeft= 0; 
+
+// 
+var storeScore= 
+
+
+}
+
+// creating a score function 
+var score = function (){
+ //user inputs the correct score, point increases by 1.
+  if (input == answer) {
+         correctAnswers = correct+1;
+         //an alert is created to notify "correct"
+         alert ("correct");
+         // except if the answer is wrong a point is deducted ***( we need the timer to remove time)
+  } else {
+         incorrectAnswers = incorrect+1;
+         alert ("incorrect"); 
+
   }
-// UPDATE for Scores and initials
-
-
-//   // Function to create and append colorsplosion image
-// //function sendMessage() {
-//   timeEl.textContent = " ";
-//   var imgEl = document.createElement("img");
-//   imgEl.setAttribute("src", "images/image_1.jpg");
-//   mainEl.appendChild(imgEl);
-
+}; 
+  
+function answers(e){
+$questionPrompt= e.target; 
+if ($questionPrompts.textContent) === questions(0). correctAnswer{
 }
 
+} 
+
+// UPDATE for Scores and initials
 //storing the scores & initials
 function storeScore(){
-   localStorage.setItem("storeScore", JSON.stringify(score))
+   localStorage.setItem("score-card", JSON.stringify(score))
 }
 
 scoreForm.addEventListener("submit", function(event) {
-   event.preventDefault();
+   
+  event.preventDefault();
   
-  //var todoText = todoInput.value.trim();
-  // if (todoText ===""){
-  //  return; 
+
   }
 
-  //dodos.push(todoText); 
-  //indoInput.value = "",
-
-  //storeScores();
-  //renderScores();
-
 }
-  
-  
-  
-  
-)
