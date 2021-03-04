@@ -14,30 +14,23 @@
     <h1>Javascript Quiz</h1>
     <p>How well do you think you know your Javascript lingo? Test yourself with a few questions 
     and at the end enter your score and initials. </p>
-    <button>Let's Start</button>
+    <button id ="btn">Let's Start</button>
     </div>
-    <div class ="text-center"       id= "question-prompt">
+    <div class ="text-center hide" id= "question-prompt">
         <h3 id ="question-text"></h3>
-        <div id= "options">
+        <div id= "questions-option">
         
        </div>
     </div>
-    <!---Question Block--->
-   <div class ="text-center hide"id= "questions-prompt">
-    <h3 id ="question-text"></h3>
-    <div id= "question-options"></div>
-
-     </div>
-
 
      <!---timer "clock"-->
-    <di id= "clock">100</div>
+    <div id= "clock">100</div>
     <div id= "results"></div>
 
 
     <!----Score----->
     <div id= "Score"></div>
-    <h2>End of Game! </h2>
+    <h2 class= "hide">End of Game!  </h2>
     <p id= "score-card" ></p>
      
 

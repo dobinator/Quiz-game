@@ -1,17 +1,35 @@
 
 // Elements from html that need to actived in js.
 
-var $startPrompt = document.querySelector("start-prompt");
+var $startPrompt = document.querySelector("#start-prompt");
 
-var $startBtn = document.querySelector('results');
+var $startBtn = document.querySelector('#results');
 
-var $questionPrompt = document.querySelector("question-prompt");
+//var $questionText = document.querySelector("#question-prompt");
 
-var $clock = document.querySelector("clock");
+var $clock = document.querySelector("#clock");
 
-var storeScores = document.querySelector("storeScores");
+var storeScores = document.querySelector("#storeScores");
 
-document.getElementById ("scoreCard")= "Please enter your initials and score"; 
+var scoreForm= document.getElementById ("btn");
+
+var $questionsOption = document.querySelector("#questions-option");
+
+var $questionText= document.getElementById("question-text");
+
+var timeLeft= 60;
+
+var timerId ;
+
+
+//document.getElementById ("scoreCard")= "Please enter your initials and score"; 
+
+var isWin= false ;
+var scoreCounter= 0; 
+
+
+
+var questionIndex = 0
 //questions for the game
 var myQuestions =[
 
@@ -60,27 +78,39 @@ var myQuestions =[
    ];
 
 
+var questionPrompt = document.getElementById ("question-prompt")
 
 //start the game- "home page"
-function startQuestions(){
+function startGame() {
 // hide start prompts
 $startPrompt.classList.add("hide");
 // show our question prompt
-$questionPrompt.classList.remove("hide");
+questionPrompt.classList.remove("hide");
 //update the content with current question
-$questionText.textContent = questions[0], text;
-//render options
-questions[0].options.forEach(function(item) {
-//create a button for start
-var $btn= document.createElement("button");
-$btn.textContent = item;
-//listening to the click of the button
-options.addEventListener ("click", answers) 
-// 
-$questionOptions.append($btn);
-//display the time "clock" on the game 
+$clock.textContent= timeLeft
+getQuestion()
 startTime();
-}); 
+}
+
+
+function getQuestion() {
+  $questionText.textContent = myQuestions[questionIndex].question;
+  //render options
+  myQuestions[questionIndex].answers.forEach(function(item) {
+  //create a button for start
+  console.log(item)
+  var $btn= document.createElement("button");
+  
+  $btn.textContent = item;
+  //listening to the click of the button
+  $btn.addEventListener ("click", answers) 
+  // 
+  $questionsOption.appendChild($btn);
+  //display the time "clock" on the game 
+ 
+  }); 
+
+
 }
 
 
@@ -96,13 +126,13 @@ function startTime() {
   timeLeft--; 
  // if there is no time left
  }
- else(timeLeft === 0){
+  else if (timeLeft === 0) {
 //once 'timeLeft gets to 0, set '$clock' to an empty string
 $clock.textContent = "";
   // Stops execution of action at set interval
   clearInterval(timerInterval);
       // Calls function for score sheet
-      displaymessage();
+  //    displayMessage();
     }
 // where's the message go? 
   }, 1000);
@@ -113,7 +143,7 @@ function displayMessage(){
 var timeLeft= 0; 
 
 // 
-var storeScore= 
+//var storeScore= 
 
 
 }
@@ -135,7 +165,7 @@ var score = function (){
   
 function answers(e){
 $questionPrompt= e.target; 
-if ($questionPrompts.textContent) === questions(0). correctAnswer{
+if ($questionPrompts.textContent === questions(0). correctAnswer) {
 }
 
 } 
@@ -146,11 +176,4 @@ function storeScore(){
    localStorage.setItem("score-card", JSON.stringify(score))
 }
 
-scoreForm.addEventListener("submit", function(event) {
-   
-  event.preventDefault();
-  
-
-  }
-
-}
+scoreForm.addEventListener("click", startGame) 
