@@ -140,7 +140,6 @@ $clock.textContent = "";
 
 // would this be where I place the winner winner chicken dinner...
 function displayMessage(){
-var timeLeft= 0; 
 
 // 
 //var storeScore= 
@@ -167,12 +166,10 @@ function answers(e){
 $questionPrompt= e.target; 
 if ($questionPrompts.textContent === questions(0). correctAnswer) {
 }
-
 } 
-
 // UPDATE for Scores and initials
 //storing the scores & initials
-function storeScore(){
+function endGame(){
    localStorage.setItem("score-card", JSON.stringify(score))
 }
 
