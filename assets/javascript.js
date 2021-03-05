@@ -8,12 +8,13 @@ var storeScores = document.querySelector("#storeScores");
 var scoreForm= document.getElementById ("btn");
 var $questionText= document.getElementById("question-text");
 var $questionsOption = document.querySelector("#questions-option");
+var questionPrompt = document.getElementById ("question-prompt")
 var timerId ;
 var timeLeft= 60;
 var isWin= false ;
 var scoreCounter= 0; 
 var questionIndex = 0
-
+var secondsLeft = 100;
 //questions for the game
 var myQuestions =[
 
@@ -53,7 +54,6 @@ var myQuestions =[
 
   },
 ];
-var questionPrompt = document.getElementById ("question-prompt")
 
 //start the game- "home page"
 function startGame() {
@@ -78,51 +78,60 @@ function getQuestion() {
   //listening to the click of the button
   $btn.addEventListener ("click", answers) 
   $questionsOption.appendChild($btn);
-  //display the time "clock" on the game 
-   
+  //display the time "clock" on the game  
 }); 
 }
 function answers(e){
+  if (!e.target.matches("button")) return; 
+  
   $questionPrompt= e.target; 
   if ($questionPrompts.textContent === questions(0).correctAnswer) {
-  }
-
-
-
-
-
-
-
-// would this be where I place the winner winner chicken dinner...
-//function displayMessage(){
-
-
-
-
-
-var secondsLeft = 100;
-//start the clock
-function startTime() {
-  // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-  var timerInterval = setInterval(function() {
-//as long as the 'timeLeft' is greater than 1
- if (timeLeft >1){
-  $clock.textContent = timeLeft;
-  //decrement 'timeLeft' by 1.
-  timeLeft--; 
- // if there is no time left
- }
-  else if (timeLeft === 0) {
-//once 'timeLeft gets to 0, set '$clock' to an empty string
-$clock.textContent = "";
-  // Stops execution of action at set interval
-  clearInterval(timerInterval);
-      // Calls function for score sheet
-  //    displayMessage();
+    // would this be where I place the winner winner chicken dinner...
+    //function displayMessage(){
+    //Check if user was correct
+    var val= e.target.textContent;
+    if(val===myQuestions[questionIndex.]correctAnswer){
+//console log ("correct");
+    } else {
+      console.log ("wrong");
     }
-// where's the message go? 
-  }, 1000);
-}
+   //Move to the next questiong
+   questionIndex++;
+   //make sure there is still more questions
+   if (questionIndex === myQuestions.length){
+     //we are out of questions
+      //so end game
+   }  else{
+     //we have more questions
+     getQuestion();
+   }
+  }
+  //start the clock
+  function startTime() {
+    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+    var timerInterval = setInterval(function() {
+  //as long as the 'timeLeft' is greater than 1
+   if (timeLeft >1){
+    $clock.textContent = timeLeft;
+    //decrement 'timeLeft' by 1.
+    timeLeft--; 
+   // if there is no time left
+   }
+    else if (timeLeft === 0) {
+  //once 'timeLeft gets to 0, set '$clock' to an empty string
+  $clock.textContent = "";
+    // Stops execution of action at set interval
+    clearInterval(timerInterval);
+        // Calls function for score sheet
+    //    displayMessage();
+      }
+  // where's the message go? 
+    }, 1000);
+  }
+      
+      
+      
+  
 
 
 
@@ -130,12 +139,6 @@ $clock.textContent = "";
 
 
 
-
-// would this be where I place the winner winner chicken dinner...
-//function displayMessage(){
-
-// 
-//var storeScore= 
 }
 
 // creating a score function 
