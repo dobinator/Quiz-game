@@ -2,56 +2,33 @@
 // Elements from html that need to actived in js.
 
 var $startPrompt = document.querySelector("#start-prompt");
-
 var $startBtn = document.querySelector('#results');
-
-//var $questionText = document.querySelector("#question-prompt");
-
 var $clock = document.querySelector("#clock");
-
 var storeScores = document.querySelector("#storeScores");
-
 var scoreForm= document.getElementById ("btn");
-
-var $questionsOption = document.querySelector("#questions-option");
-
 var $questionText= document.getElementById("question-text");
-
-var timeLeft= 60;
-
+var $questionsOption = document.querySelector("#questions-option");
 var timerId ;
-
-
-//document.getElementById ("scoreCard")= "Please enter your initials and score"; 
-
+var timeLeft= 60;
 var isWin= false ;
 var scoreCounter= 0; 
-
-
-
 var questionIndex = 0
+
 //questions for the game
 var myQuestions =[
 
-    {question:"Java Script File Has An Extension Of?",
-   
-    correctAnswer: ".js",
+  {question:"Java Script File Has An Extension Of?",
 
-    answers: [".Java", ".js", ".javascript", "xml",]
-    
-    },
+  correctAnswer: ".js",
+  answers: [".Java", ".js", ".javascript", "xml",]
+},
 
-  {question: "IsNaN() Evalutes And Argument To Determine if Given Value?",
-    
-   correctAnswer: "Is Not a Number",
-
-    answers: [
-      "Is Not a Null", "Is Not a Number", "Is Not a New Object", "None of the above",],
-    
-   },
-
+ {question: "IsNaN() Evalutes And Argument To Determine if Given Value?",
+  correctAnswer: "Is Not a Number",
+  answers: [
+    "Is Not a Null", "Is Not a Number", "Is Not a New Object", "None of the above",],
+  },
   {question: "Function is Used To Parse a String To Int?",
-   
   correctAnswer:"Int.Parse",
     
   answers: ["Integer.Parse", "Int.Parse", "Parse.Int", "None"]
@@ -75,9 +52,7 @@ var myQuestions =[
    answers: ["Onclick()", "OnFocus()", "OnBlur()", "None"]
 
   },
-   ];
-
-
+];
 var questionPrompt = document.getElementById ("question-prompt")
 
 //start the game- "home page"
@@ -92,26 +67,37 @@ getQuestion()
 startTime();
 }
 
-
 function getQuestion() {
   $questionText.textContent = myQuestions[questionIndex].question;
   //render options
   myQuestions[questionIndex].answers.forEach(function(item) {
   //create a button for start
-
   var $btn= document.createElement("button");
-  
   $btn.textContent = item;
+  //myQuestions.answers.
   //listening to the click of the button
   $btn.addEventListener ("click", answers) 
-  // 
   $questionsOption.appendChild($btn);
   //display the time "clock" on the game 
- 
-  }); 
-
-
+   
+}); 
 }
+function answers(e){
+  $questionPrompt= e.target; 
+  if ($questionPrompts.textContent === questions(0).correctAnswer) {
+  }
+
+
+
+
+
+
+
+// would this be where I place the winner winner chicken dinner...
+//function displayMessage(){
+
+
+
 
 
 var secondsLeft = 100;
@@ -138,13 +124,18 @@ $clock.textContent = "";
   }, 1000);
 }
 
+
+
+
+
+
+
+
 // would this be where I place the winner winner chicken dinner...
-function displayMessage(){
+//function displayMessage(){
 
 // 
 //var storeScore= 
-
-
 }
 
 // creating a score function 
@@ -162,15 +153,41 @@ var score = function (){
   }
 }; 
   
-function answers(e){
-$questionPrompt= e.target; 
-if ($questionPrompts.textContent === questions(0). correctAnswer) {
-}
-} 
 // UPDATE for Scores and initials
 //storing the scores & initials
+
+
+
+
 function endGame(){
    localStorage.setItem("score-card", JSON.stringify(score))
 }
 
 scoreForm.addEventListener("click", startGame) 
+
+
+
+
+
+ 
+
+
+
+  
+
+
+  
+
+
+    
+
+    
+
+   
+
+
+
+
+
+
+
