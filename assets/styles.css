@@ -1,15 +1,28 @@
 * {
-background-color:#F5F0ED;
-margin:0%; 
-font-family:Helvetica,Arial,sans-serif;
-color: #2d2d2b;
-}
-.container {
-  width: 600px;
-  margin: 0 auto;
+  margin: 0; 
+  padding: 0; 
+  box-sizing: inherit; 
 }
 
-#clock{
+ h1 {
+  font-family: 'Cabin', sans-serif;
+}
+.title {
+  justify-content: center;
+}
+
+h2, h3 {
+  font-family: 'Sniglet', cursive;
+}
+
+.container {
+  width: 1000px;
+  background-color: #F5F0ED;
+  color: #2d2d2b;
+  
+}
+
+#clock {
   position: fixed;
   padding: 10px;
   right: 0;
@@ -22,21 +35,24 @@ color: #2d2d2b;
   font-size: 28px;
 }
 
-button {
+
+.button {
     padding: 10px;
     margin: 24px;
     cursor: pointer;
+    border-radius: 10px; 
     font-size: 24px;
     background-color:#3D5361;
     color: white;
+
+     
   }
+
+
 .hide {
    display: none; 
 }
 #score-card {
   color: #2d2d2b;
-  font-size: 30px; 
-
-
-
+  font-size: 30px;
 }

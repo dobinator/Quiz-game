@@ -16,7 +16,7 @@ var scoreCounter= 0;
 var questionIndex = 0
 var secondsLeft = 100;
 //questions for the game
-var myQuestions =[
+const myQuestions =[
 
   {question:"Java Script File Has An Extension Of?",
 
@@ -27,30 +27,43 @@ var myQuestions =[
  {question: "IsNaN() Evalutes And Argument To Determine if Given Value?",
   correctAnswer: "Is Not a Number",
   answers: [
-    "Is Not a Null", "Is Not a Number", "Is Not a New Object", "None of the above",],
+    "Is Not a Null",
+     "Is Not a Number", 
+     "Is Not a New Object", 
+     "None of the above",],
   },
+
+
   {question: "Function is Used To Parse a String To Int?",
   correctAnswer:"Int.Parse",
     
-  answers: ["Integer.Parse", "Int.Parse", "Parse.Int", "None"]
-
+  answers: 
+        ["Integer.Parse", 
+        "Int.Parse",
+        "Parse.Int", 
+        "None"]
   },
 
 
  {question: "Which Of The Dialog Box Display a Message And a Data Entry Field?",
    
    correctAnswer:"Prompt", 
-   
-   
-   answers: ["Alert()","Prompt()", "Confirm()"]
+   answers: 
+          ["Alert()",
+            "Prompt()", 
+            "Confirm()"]
 
   }, 
     
    {question: "Event is Used To Check An Empty Text Box?",
    
-   correctAnswer:"", 
+   correctAnswer:"onClick()", 
 
-   answers: ["Onclick()", "OnFocus()", "OnBlur()", "None"]
+   answers: 
+      ["onClick()",
+       "OnFocus()",
+       "OnBlur()", 
+       "None"]
 
   },
 ];
@@ -58,13 +71,13 @@ var myQuestions =[
 //start the game- "home page"
 function startGame() {
 // hide start prompts
-$startPrompt.classList.add("hide");
+  $startPrompt.classList.add("hide");
 // show our question prompt
-questionPrompt.classList.remove("hide");
+  questionPrompt.classList.remove("hide");
 //update the content with current question
-$clock.textContent= timeLeft
-getQuestion()
-startTime();
+  $clock.textContent= timeLeft
+  getQuestion()
+  startTime();
 }
 
 function getQuestion() {
@@ -81,6 +94,8 @@ function getQuestion() {
   //display the time "clock" on the game  
 }); 
 }
+
+
 function answers(e){
   if (!e.target.matches("button")) return; 
   
@@ -90,7 +105,7 @@ function answers(e){
     //function displayMessage(){
     //Check if user was correct
     var val= e.target.textContent;
-    if(val===myQuestions[questionIndex.]correctAnswer){
+    if(val=== myQuestions[questionIndex].correctAnswer){
 //console log ("correct");
     } else {
       console.log ("wrong");
@@ -106,6 +121,8 @@ function answers(e){
      getQuestion();
    }
   }
+
+
   //start the clock
   function startTime() {
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
@@ -128,7 +145,7 @@ function answers(e){
   // where's the message go? 
     }, 1000);
   }
-      
+      startTime()
       
       
   
