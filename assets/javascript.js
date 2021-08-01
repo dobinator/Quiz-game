@@ -1,5 +1,5 @@
 
-// Elements from html that need to actived in js.
+// Elements from html that need to activated in js.
 
 var $startPrompt = document.querySelector("#start-prompt");
 var $startBtn = document.querySelector('#results');
@@ -9,17 +9,15 @@ var scoreForm= document.getElementById ("btn");
 var $questionText= document.getElementById("question-text");
 var $questionsOption = document.querySelector("#questions-option");
 var questionPrompt = document.getElementById ("question-prompt")
-var timerId ;
 var timeLeft= 60;
 var isWin= false ;
 var scoreCounter= 0; 
-var questionIndex = 0
+var questionIndex = 0; 
 var secondsLeft = 100;
 //questions for the game
 const myQuestions =[
 
-  {question:"Java Script File Has An Extension Of?",
-
+  {question:"A JavaScript file has an extension of?",
   correctAnswer: ".js",
   answers: [".Java", ".js", ".javascript", "xml",]
 },
@@ -75,8 +73,8 @@ function startGame() {
 // show our question prompt
   questionPrompt.classList.remove("hide");
 //update the content with current question
-  $clock.textContent= timeLeft
-  getQuestion()
+  $clock.textContent = timeLeft
+  getQuestion();
   startTime();
 }
 
@@ -104,19 +102,19 @@ function answers(e){
     // would this be where I place the winner winner chicken dinner...
     //function displayMessage(){
     //Check if user was correct
-    var val= e.target.textContent;
-    if(val=== myQuestions[questionIndex].correctAnswer){
+    var val = e.target.textContent;
+    if(val === myQuestions[questionIndex].correctAnswer){
 //console log ("correct");
     } else {
       console.log ("wrong");
     }
-   //Move to the next questiong
+   //Move to the next question
    questionIndex++;
    //make sure there is still more questions
    if (questionIndex === myQuestions.length){
      //we are out of questions
       //so end game
-   }  else{
+   }  else {
      //we have more questions
      getQuestion();
    }
@@ -128,7 +126,7 @@ function answers(e){
     // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timerInterval = setInterval(function() {
   //as long as the 'timeLeft' is greater than 1
-   if (timeLeft >1){
+   if (timeLeft > 1){
     $clock.textContent = timeLeft;
     //decrement 'timeLeft' by 1.
     timeLeft--; 
