@@ -1,41 +1,51 @@
 
 // Elements from html that need to activated in js.
-
-var $startPrompt = document.querySelector("#start-prompt");
-var $startBtn = document.querySelector('#results');
-var $clock = document.querySelector("#clock");
-var storeScores = document.querySelector("#storeScores");
-var scoreForm= document.getElementById ("btn");
-var $questionText= document.getElementById("question-text");
-var $questionsOption = document.querySelector("#questions-option");
-var questionPrompt = document.getElementById ("question-prompt")
-var timeLeft= 60;
-var isWin= false ;
-var scoreCounter= 0; 
-var questionIndex = 0; 
-var secondsLeft = 100;
+const $startPrompt = document.querySelector("#start-prompt");
+const $startBtn = document.querySelector('#results');
+const $clock = document.querySelector("#clock");
+const storeScores = document.querySelector("#storeScores");
+const scoreForm = document.getElementById ("btn");
+const $questionText = document.getElementById("question-text");
+const $questionsOption = document.querySelector("#questions-option");
+const questionPrompt = document.getElementById ("question-prompt")
+let timeLeft = 60;
+let isWin = false;
+let scoreCounter = 0; 
+let questionIndex = 0; 
+let secondsLeft = 100;
 //questions for the game
 const myQuestions =[
 
-  {question:"A JavaScript file has an extension of?",
-  correctAnswer: ".js",
-  answers: [".Java", ".js", ".javascript", "xml",]
+  { question:"A JavaScript file has an extension name of?",
+
+    correctAnswer: ".js",
+
+    answers: [
+      ".Java",
+       ".js", 
+       ".javascript", 
+       "xml"
+      ]
 },
 
- {question: "IsNaN() Evalutes And Argument To Determine if Given Value?",
+ {  question: "IsNaN() stands for?",
+
   correctAnswer: "Is Not a Number",
+
   answers: [
     "Is Not a Null",
      "Is Not a Number", 
      "Is Not a New Object", 
-     "None of the above",],
+     "None of the above"
+    ]
   },
 
 
-  {question: "Function is Used To Parse a String To Int?",
-  correctAnswer:"Int.Parse",
+  { question: "Function that is used to parse a string to Int?",
+
+    correctAnswer:"Int.Parse",
     
-  answers: 
+    answers: 
         ["Integer.Parse", 
         "Int.Parse",
         "Parse.Int", 
@@ -43,25 +53,29 @@ const myQuestions =[
   },
 
 
- {question: "Which Of The Dialog Box Display a Message And a Data Entry Field?",
+ { question: "Which of the dialog box synatax is used to display a message and a data entry field?",
    
    correctAnswer:"Prompt", 
+
    answers: 
           ["Alert()",
             "Prompt()", 
-            "Confirm()"]
+            "Confirm()"
+          ]
 
   }, 
     
-   {question: "Event is Used To Check An Empty Text Box?",
+   { question: "What event is used to check an empty text box?",
    
    correctAnswer:"onClick()", 
 
    answers: 
-      ["onClick()",
+      [
+        "onClick()",
        "OnFocus()",
        "OnBlur()", 
-       "None"]
+       "None"
+      ]
 
   },
 ];
@@ -92,7 +106,6 @@ function getQuestion() {
   //display the time "clock" on the game  
 }); 
 }
-
 
 function answers(e){
   if (!e.target.matches("button")) return; 
@@ -144,16 +157,6 @@ function answers(e){
     }, 1000);
   }
       startTime()
-      
-      
-  
-
-
-
-
-
-
-
 }
 
 // creating a score function 
@@ -175,37 +178,10 @@ var score = function (){
 //storing the scores & initials
 
 
-
-
 function endGame(){
    localStorage.setItem("score-card", JSON.stringify(score))
 }
 
 scoreForm.addEventListener("click", startGame) 
-
-
-
-
-
- 
-
-
-
-  
-
-
-  
-
-
-    
-
-    
-
-   
-
-
-
-
-
 
 
