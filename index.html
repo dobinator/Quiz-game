@@ -11,32 +11,39 @@
 </head>
 <body>
     <div class ="container">
-            <!--Start Prompt-->
-             <div class="text" id ="start-prompt">
-            <h1 class= "title">Javascript Quiz</h1>
- 
-            <h2>How well do you know your Javascript lingo? <br><br>Test yourself with a few questions 
+        <div class= "hide" id="score">Score:</div>
+        <!-----START PROMPT-->
+        <div class="text-center" id ="start-prompt">
+                <h1 class= "title">Javascript Quiz</h1>
+                <h2>How well do you know your Javascript lingo? <br><br>Test yourself with a few questions 
     and at the end, enter your score and initials. </h2>
-            <button class= "button" id= "btn">Start</button>
-            </div>
-             <div class ="text-center hide" id= "question-prompt">
+                 <button class= "button" id="start-btn">Start</button>
+        </div>
+            <!--------Question Block-->
+            <div class ="text-center hide" id= "question-prompt">
             <h3 class = "question-text" id ="question-text"></h3>
-            <div class = "questions-options" id= "questions-option"></div>
+            <div class = "question-options" id= "question-options">
+
             </div>
+            </div>
+
+            <button id= "reset-button" class= "hide" onclick="window.location.reload()">Reset</button>
+        
+            
   
      <!---timer "clock"-->
-    <div id= "clock"></div>
-    <div id= "results"></div>
+    <div class="hide" id= "clock">100</div>
+        </div>
+
 
 
     <!----Score----->
-    <div id= "Score"></div>
-    <h2 class= "hide">End of Game!</h2>
-    <p id= "score-card" ></p>
-     
+    <button id= "high-score">Show High Score</button>
+    <!-----HIDE SCORE button-->
+    <button class= "hide" id= "hide-score">Hide High Score</button>
+  <div class= "hide" id="high-score-view"></div>  
 
-</div>
-
+    </div>
 <script src="assets/javascript.js"></script> 
 </body>
 </html>

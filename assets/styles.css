@@ -3,7 +3,7 @@
   margin: 0; 
   padding: 0; 
   box-sizing: inherit; 
-  background-color: #2d2d2b;
+  /* background-color: #2d2d2b; */
 }
 
 .title {
@@ -35,9 +35,18 @@ body {
 }
 .question-text {
   font-size: 28px;
+  color: #ffff; 
 }
- 
-.button, button {
+
+.text-center {
+height: 100;
+width: 1000px; 
+
+}
+
+
+.button, 
+button {
     padding: 10px;
     margin: 24px;
     cursor: pointer;
@@ -58,6 +67,5 @@ body {
 }
 
 #score-card {
-
   font-size: 30px;
 }
