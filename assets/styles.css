@@ -33,6 +33,7 @@ body {
   text-align: center; 
   font-size: 28px;
 }
+
 .question-text {
   font-size: 28px;
   color: #ffff; 
@@ -43,7 +44,6 @@ height: 100;
 width: 1000px; 
 
 }
-
 
 .button, 
 button {

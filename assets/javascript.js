@@ -1,21 +1,21 @@
 
 // Elements from html that need to activated in js.
-const $startBtn = document.getElementById("start-btn");
+const $startBtn = document.querySelector("#start-btn");
 const $startPrompt = document.querySelector("#start-prompt");
 const $clock = document.querySelector("#clock");
 const $score = document.querySelector("#score"); 
-const $questionText = document.getElementById("question-text");
-const $questionOptions = document.getElementById("question-options");
-const questionPrompt = document.getElementById ("question-prompt");
+const $questionText = document.querySelector("#question-text");
+const $questionOptions = document.querySelector("#question-options");
+const questionPrompt = document.querySelector ("#question-prompt");
 const $highScoreBtn = document.querySelector('#high-score');
 const $viewHighScore = document.querySelector('#high-score-view');
 const $hideScoreBtn = document.querySelector('#hide-score'); 
-const $resetBtn = document.getElementById("reset-button"); 
+const $resetBtn = document.querySelector('#reset-button');
+
 
 let timeLeft = 100;
 let scoreBoard = 0; 
 let questionIndex = 0;
-let highScores = JSON.parse(localStorage.getItem('highScoresArray')) || []; 
 
 //questions for the game
 const myQuestions =[
@@ -84,7 +84,7 @@ const myQuestions =[
   },
 ];
 //START game with event listener
-$startBtn.addEventListener("click", function() {
+$startBtn.addEventListener("click", function(e) {
   //clicking the start button will hide the prompt
   $startPrompt.classList.add("hide");
   //will show the question prompt
@@ -99,22 +99,22 @@ $startBtn.addEventListener("click", function() {
   getQuestion();
 
 }); 
-
+// issue with the function of $questionOptions...
 function getQuestion() {
   // get the questions from the question array, rendering options
   $questionText.textContent = myQuestions[questionIndex].question;
 // clears out the buttons after the click
-  $questionOptions.innerHTML = ""; 
+  $questionOptions.innerHTML = " "; 
   myQuestions[questionIndex].answers.forEach(function (item) {
-  const $btn = document.createElement("button");
-  $btn.textContent = item;
-  //myQuestions.answers.
-  //listening to the click of the button
-  $questionsOptions.append($btn);
-  
-}); 
+    let $btn = document.createElement("button");
+    $btn.textContent = item;
+    //myQuestions.answers.
+    $questionOptions.append($btn);
+    
+  }); 
 }
 
+//listening to the click of the button
 $questionOptions.addEventListener("click", function(e) {
   //if target value is incorrect exit early
   if (!e.target.matches("button")) return; 
