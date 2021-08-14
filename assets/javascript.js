@@ -143,7 +143,28 @@ answers: [
     "toString()"
 
 ]
-}
+},
+{ question: "Which of the following function of String object returns the characters in a string beginning at the specified location through the specified number of characters?",
+
+correctAnswer: "substr()",
+
+answers: [
+    "slice()",
+    "split()",
+    "substr()",
+    "search()",
+]
+},
+{ question: "Which of the following function of String object returns the calling string value converted to lower case?",
+  correctAnswer: "toLowerCase()",
+
+  answers: [
+      "toLocalLowerCase()",
+      "toLowerCase()",
+      "toString()",
+      "substring()"
+  ]
+},
 ];
 //START game with event listener
 $startBtn.addEventListener("click", function(e) {
