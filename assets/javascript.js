@@ -82,6 +82,68 @@ const myQuestions =[
       ]
 
   },
+
+   { question: "Is JavaScript a case-sensitive language?", 
+   
+   correctAnswer:"True",
+   
+   answers: 
+   [
+    "True",
+    "False"
+   ]
+  
+  },
+
+  { question: "Hoe can you get the total number of arguments passed into a function?",
+
+  correctAnswer: "Using arguments.length property",
+
+    answers: [
+    "Using args.length",
+    "Using arguments.length property",
+    "Both of the above",
+    "None of the above",
+]
+},
+
+{ question: " Which of the following type of variable takes precedence over others if names are the same?",
+
+    correctAnswer: 
+    "local variable",
+
+    answers: [
+    "global variable",
+    "local variable",
+    "both of the above",
+    "none of the above",
+
+]
+},
+
+{ question:" Which of the following function of Number object formats a number with a specific number of digits to the right of the decimal?",
+
+correctAnswer: "toFixed()",
+
+answers: [
+      "toExponential()",
+      "toFixed()",
+      "toPrecision",
+      "toLocaleString()",
+]
+},
+{ question: "Which of the following function of Number object returns a string value version of the current number in a format that may vary according to a browser's locale settings?",
+
+correctAnswer: "toLocaleString()",
+
+answers: [
+    "toExponential()",
+    "toFixed()",
+    "toLocaleString()",
+    "toString()"
+
+]
+}
 ];
 //START game with event listener
 $startBtn.addEventListener("click", function(e) {
@@ -131,7 +193,7 @@ timeLeft = timeLeft-20;
 $clock.textContext = timeLeft; 
 }
 questionIndex++;
-if (questionIndex === myQuestions.length)  {
+if (questionIndex === myQuestions.length) {
   //end game
   saveScore(); 
 } else {
