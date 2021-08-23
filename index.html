@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/styles.css" >
     <title>Quiz Game</title>
 </head>
 <body>
-    <div class ="container">
+    <header>
         <div class= "hide" id="score">Score:</div>
         <!-----START PROMPT-->
         <div class="text-center" id ="start-prompt">
@@ -19,6 +18,9 @@
     and at the end, enter your score and initials. </h2>
                  <button class= "button" id="start-btn">Start</button>
         </div>
+    </header>
+    <main>
+        <section>
             <!--------Question Block-->
             <div class ="text-center hide" id= "question-prompt">
             <h3 class = "question-text" id ="question-text"></h3>
@@ -30,20 +32,21 @@
             <button id= "reset-button" class= "hide" onclick="window.location.reload()">Reset</button>
         
             
-  
+  <section>
      <!---timer "clock"-->
     <div class="hide" id= "clock">100</div>
         </div>
 
-
-
+ 
+    </section>
+<section>
     <!----Score----->
     <button id= "high-score">Show High Score</button>
     <!-----HIDE SCORE button-->
     <button class= "hide" id= "hide-score">Hide High Score</button>
   <div class= "hide" id="high-score-view"></div>  
-
-    </div>
+</section>  
+</main>  
 <script src="assets/javascript.js"></script> 
 </body>
 </html>
