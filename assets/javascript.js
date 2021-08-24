@@ -95,7 +95,7 @@ const myQuestions =[
   
   },
 
-  { question: "Hoe can you get the total number of arguments passed into a function?",
+  { question: "How can you get the total number of arguments passed into a function?",
 
   correctAnswer: "Using arguments.length property",
 
@@ -232,7 +232,7 @@ function saveScore() {
   localStorage.setItem("Score", JSON.stringify(scoreBoard));
   //save user initials input
   const userName = prompt("Enter your initial to save score"); 
-  localStorage.setItem.length("User", JSON.stringify(userName)); 
+  localStorage.setItem("User", JSON.stringify(userName)); 
 }
 // VIEW SCORE Function
 function viewScore() {
