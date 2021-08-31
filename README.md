@@ -1,5 +1,6 @@
 # Quiz-game
 
+## Description
 The quiz game is an multiple choice questions and interactive coding challenges. 
 
 The game utilizes a start button, which launches into a questionnaire. The timer will start once the "Let's start" button is clicked. There is an alert to notify the player if they answer the question correct or wrong. The questions will cycle through to the end of the game. At the end of the game there is a final prompt to enter your score and initials.
